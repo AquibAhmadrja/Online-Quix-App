@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Quix | Interactive Educational App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container" id="quizContainer">
+        <header class="header">
+            <h1 class="logo">Online Quix</h1>
+            <p class="tagline">Interactive Educational Tool</p>
+        </header>
+
+        <div id="importControl">
+            <h3>Administrative Controls</h3>
+            
+            <button id="teacherLoginBtn" class="btn btn--primary" style="width: auto;" data-action="login">
+                🔑 Teacher Login
+            </button>
+            
+            <div id="teacherPanel" class="teacher-panel-content">
+                <p style="margin-bottom: 10px;">Upload a JSON file to change the active question set.</p>
+                
+                <input type="file" id="jsonFile" class="file-input" accept=".json">
+                <label for="jsonFile" class="file-label">📂 Upload Questions (.json)</label>
+                
+                <p id="questionCountDisplay" style="margin-top: 10px; font-size: 0.9em; color: var(--color-text); font-weight: 500;">
+                    Questions loaded: 3 (Default)
+                </p>
+            </div>
+            
+            <p id="loginFeedback" style="margin-top: 10px; color: var(--color-error); font-weight: 500;"></p>
+        </div>
+        
+        <main class="quiz-interface" id="questionArea">
+            <p class="question-text" id="questionText">Initializing quiz...</p>
+            
+            <div class="options-grid" id="optionsContainer">
+                </div>
+            
+            <button id="nextBtn" class="btn btn--primary btn--hidden" data-action="next">Next Question &rarr;</button>
+        </main>
+
+        <section class="results-screen screen--hidden" id="resultScreen">
+            <h2>Quiz Complete! 🎉</h2>
+            <p class="final-score">You scored 
+                <span id="finalScore">0</span> out of 
+                <span id="totalQuestions">0</span>
+            !</p>
+            <button class="btn btn--success" data-action="restart">Start New Quiz</button>
+        </section>
+    </div>
+
+    <script src="script.js" defer></script> 
+
+</body>
+</html>
